@@ -33,7 +33,7 @@ def main():
         location = st.text_input("Enter your location (Zip code, City)")
         radius = st.slider("Commutable Distance (in miles)", 10, 100, 50)
 
-        companies = ["Google", "Microsoft", "Amazon", "Meta", "Apple"]
+        companies = ["Google", "Microsoft", "Amazon", "Meta", "Apple", "Kforce"]
 
         if st.button("Search Jobs"):
             keyword_list = [k.strip() for k in keywords.split(",")]
