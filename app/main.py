@@ -27,7 +27,7 @@ def main():
             return
 
         st.success("Resume processed.")
-        st.write("Extracted Resume Text:", resume_text[:1000])  # optional preview
+        st.write("Extracted Resume Text:", resume_text[:9000])  # optional preview
 
         keywords = st.text_input("Enter job keywords (comma-separated)", "software engineer, data, DevOps, Cloud")
         location = st.text_input("Enter your location (Zip code, City, Country)")
