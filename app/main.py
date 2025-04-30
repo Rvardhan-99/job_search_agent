@@ -1,6 +1,6 @@
 import streamlit as st
-from app.job_scraper import scrape_career_page_links
-from app.resume_parser import extract_skills
+from job_scraper import scrape_career_page_links
+from resume_parser import extract_skills
 
 def main():
     st.title("AI Job Finder: Career Page Scraper")
