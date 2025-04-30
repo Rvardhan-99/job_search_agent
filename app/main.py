@@ -29,8 +29,8 @@ def main():
         st.success("Resume processed.")
         st.write("Extracted Resume Text:", resume_text[:1000])  # optional preview
 
-        keywords = st.text_input("Enter job keywords (comma-separated)", "software engineer, data")
-        location = st.text_input("Enter your location (Zip code, City)")
+        keywords = st.text_input("Enter job keywords (comma-separated)", "software engineer, data, DevOps, Cloud")
+        location = st.text_input("Enter your location (Zip code, City, Country)")
         radius = st.slider("Commutable Distance (in miles)", 10, 100, 50)
 
         companies = ["Google", "Microsoft", "Amazon", "Meta", "Apple", "Kforce"]
