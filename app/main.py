@@ -25,10 +25,9 @@ def main():
     else:
         st.error("Only PDF and DOCX files are supported.")
         return
-        
-        skills = extract_skills(resume_text)
-        st.success("Resume processed.")
-        st.write("Extracted Skills:", skills)
+
+    st.success("Resume processed.")
+    st.write("Extracted Resume Text:", resume_text[:1000])  # optional preview
 
     keywords = st.text_input("Enter job keywords (comma-separated)", "software engineer, data")
     location = st.text_input("Enter your location (Zip code, City)")
