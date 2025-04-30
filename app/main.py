@@ -1,4 +1,7 @@
 import streamlit as st
+import io
+import docx
+from pdfminer.high_level import extract_text as extract_pdf_text
 from job_scraper import scrape_career_page_links
 from resume_parser import extract_skills
 
@@ -7,7 +10,22 @@ def main():
 
     uploaded_file = st.file_uploader("Upload your resume", type=["pdf", "docx"])
     if uploaded_file:
-        resume_text = uploaded_file.read().decode("utf-8")
+    file_type = uploaded_file.name.split(".")[-1].lower()
+    resume_text = ""
+
+    if file_type == "pdf":
+        with open("temp_resume.pdf", "wb") as f:
+            f.write(uploaded_file.getbuffer())
+        resume_text = extract_pdf_text("temp_resume.pdf")
+
+    elif file_type == "docx":
+        doc = docx.Document(io.BytesIO(uploaded_file.getbuffer()))
+        resume_text = "\n".join([p.text for p in doc.paragraphs])
+
+    else:
+        st.error("Only PDF and DOCX files are supported.")
+        return
+        
         skills = extract_skills(resume_text)
         st.success("Resume processed.")
         st.write("Extracted Skills:", skills)
